@@ -104,13 +104,26 @@ plot(EDUC~VOTE12,data=GSSdata)
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+Voted12 median is higher than no in 12. The education is also more in voted 12 because it shows the people who voted have more and higher education than no in 12.
+
 #### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+favstats(EDUC~VOTE12,data=GSSdata)
+```
+The average education for who voted is 15.7 while the average for the people who didn't vote was 13.4 the median difference between the two is 3.
 
 ### Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+```{r}
+t.test(EDUC~VOTE12,data=GSSdata)
+```
+
+The inferential results show that it is a alternative hypothesis because it has a true difference in means between group no in 12 is not equal to 0. There is a relationship because there is a difference greater than 0.
+
 
 #  Question 3
 
