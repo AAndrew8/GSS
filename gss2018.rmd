@@ -122,14 +122,15 @@ The average education for who voted is 15.7 while the average for the people who
 t.test(EDUC~VOTE12,data=GSSdata)
 ```
 
-The inferential results show that it is a alternative hypothesis because it has a true difference in means between group no in 12 is not equal to 0. There is a relationship because there is a difference greater than 0.
-
-
+The P value Is 1.248 so meaning there is a true difference in means between the two groups so there is a relationship since the pvalue is greater than 0.
 #  Question 3
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
 Determine if a persons performance on the wordsum test (WORDSUM) is independent of their level of schooling (DEGREE).
+
+Ho A person performance on wordsum test is not dependent of their schooling 
+Ha A person performance on wordsum test is independent of their schooling.
 
 ## Methods
 
@@ -143,15 +144,39 @@ Determine if a persons performance on the wordsum test (WORDSUM) is independent 
 
 #### Graphical Descriptive Results
 
+```{r}
+plot(WORDSUM~DEGREE,data=GSSdata)
+```
+The box plot shows there is a slight difference in the data for each group. The more advanced the education to higher the score is in the lower the education show the lower score.
+
+
+
+
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 #### Numerical Descriptive Results
+```{r}
+favstats(WORDSUM~DEGREE,data=GSSdata)
+```
+
+The table reflects that junior college, and bachelor are approximately the same mean. The graduate is much higher than the LT high school in high school is significantly lower. Yes
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ### Inferential Results
 
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=GSSdata)
+summary.aov(model1)
+```
+
+
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
 
 
 # Discussion and Conclusion
